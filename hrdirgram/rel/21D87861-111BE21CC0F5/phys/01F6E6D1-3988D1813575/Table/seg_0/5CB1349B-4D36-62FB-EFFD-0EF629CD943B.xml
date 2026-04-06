@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="JOB_HISTORY" directorySegmentName="seg_0" id="5CB1349B-4D36-62FB-EFFD-0EF629CD943B">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<schemaObject>A1924C44-C650-BFFC-1CD7-510A784C040E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>D58487E1-A040-A318-5C53-359062EC3A5E</segment>
+<tableSpace>C7FE1518-EB4D-FA82-CB38-88C32C3092F0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="JOB_ID" id="0DC7BF22-D5C7-AC2C-7077-48A137E5C327">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="START_DATE" id="505F88F1-71E9-7713-AABF-EC723DD60955">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="END_DATE" id="617887B7-F581-BFA5-3E26-1E21EF860B9F">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMPLOYEE_ID" id="96AE4A11-43DD-5D5F-8AD2-A0D8045DBF12">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTMENT_ID" id="E04D8F74-ED98-2084-7AEB-54476CC0B768">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="JHIST_EMP_ID_ST_DATE_PK" id="466E06B3-C2B1-911A-D4F0-168205B8A155">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:56 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<schemaObject>A1924C44-C650-BFFC-1CD7-510A784C040E</schemaObject>
+<segment>2CE63298-9884-4B3B-510F-EEA8C0CA374B</segment>
+<tableSpace>C7FE1518-EB4D-FA82-CB38-88C32C3092F0</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="JHIST_EMPLOYEE_IX" id="7A34C749-829B-7D35-B49D-B1BB3126F3B7">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:56 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<schemaObject>A1924C44-C650-BFFC-1CD7-510A784C040E</schemaObject>
+<segment>2CE63298-9884-4B3B-510F-EEA8C0CA374B</segment>
+<tableSpace>C7FE1518-EB4D-FA82-CB38-88C32C3092F0</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="JHIST_DEPARTMENT_IX" id="BCFAE01B-70AE-059E-E4D3-36140553DCD2">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:56 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<schemaObject>A1924C44-C650-BFFC-1CD7-510A784C040E</schemaObject>
+<segment>2CE63298-9884-4B3B-510F-EEA8C0CA374B</segment>
+<tableSpace>C7FE1518-EB4D-FA82-CB38-88C32C3092F0</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="JHIST_JOB_IX" id="F7A3DF1C-FDEC-6740-58E3-5298B0144FDE">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:56 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<schemaObject>A1924C44-C650-BFFC-1CD7-510A784C040E</schemaObject>
+<segment>2CE63298-9884-4B3B-510F-EEA8C0CA374B</segment>
+<tableSpace>C7FE1518-EB4D-FA82-CB38-88C32C3092F0</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JHIST_JOB_FK" id="180F35C7-3DF2-86F2-14BD-FEC054D60AE8">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:57 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JHIST_DEPT_FK" id="2017AF48-4D41-3CF6-BD06-C0EA6E9EF049">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:57 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="JHIST_EMP_FK" id="A1B983B9-E2F7-21B0-23E5-8D08E0CA5358">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:57 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="JHIST_EMP_ID_ST_DATE_PK" id="406059F2-FA46-47F8-DFE7-C4373547EDC5">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:56 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<segment>2CE63298-9884-4B3B-510F-EEA8C0CA374B</segment>
+<tableSpace>C7FE1518-EB4D-FA82-CB38-88C32C3092F0</tableSpace>
+<existingIndex>466E06B3-C2B1-911A-D4F0-168205B8A155</existingIndex>
+<indexSegment>2CE63298-9884-4B3B-510F-EEA8C0CA374B</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="JHIST_DATE_INTERVAL" id="23079FB3-9A3D-DCA5-099A-03D2181A32E1">
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:57 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+</TableCheckConstraint>
+</tableCheckConstraints>
+</TableProxyOraclev20c>

@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8CE7CF86-10D5-66FA-78FF-D4B32447DA62" schemaObject="A1924C44-C650-BFFC-1CD7-510A784C040E" name="REGIONS">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>REGIONS</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<commentInRDBMS><![CDATA[Regions table that contains region numbers and names. references with the Countries table.]]></commentInRDBMS>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="REGION_ID" id="7DAEC92F-D2EE-C31F-9553-7676DADA9A03">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>REGIONS</sourceObjSchema>
+<sourceObjName>REGION_ID</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<commentInRDBMS><![CDATA[Primary key of regions table.]]></commentInRDBMS>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>REGION_ID_NN</notNullConstraintName>
+</Column>
+<Column name="REGION_NAME" id="65C7DA75-E112-46E6-C39B-1ECFA48D30E8">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>REGIONS</sourceObjSchema>
+<sourceObjName>REGION_NAME</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:54 UTC</createdTime>
+<commentInRDBMS><![CDATA[Names of regions. Locations are in the countries of these regions.]]></commentInRDBMS>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8C5A9B16-F200-1991-DDB7-DEA3A0B74A7B" name="REG_ID_PK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>REG_ID_PK</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:56 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7DAEC92F-D2EE-C31F-9553-7676DADA9A03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AB980C6B-3D40-876F-5E83-E96DFE3438FE" schemaObject="A1924C44-C650-BFFC-1CD7-510A784C040E" name="REG_ID_PK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>REG_ID_PK</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2026-04-06 05:40:56 UTC</createdTime>
+<ownerDesignName>hrdirgram</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7DAEC92F-D2EE-C31F-9553-7676DADA9A03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
