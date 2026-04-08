@@ -48,6 +48,26 @@ WHERE  DEPARTMENT_ID != 80;  -- <> , != 같지 않다
 /* 직원 사번, 입사일 */
 -- 2026년 04월 07일 10시 05분 04초 오전 수요일
 -- 한자로 출력(午前 / 午後 / 年月日時分秒 /
+
+SELECT TO_CHAR(SYSDATE, 'YYYY') || '年 '
+    || TO_CHAR(SYSDATE, 'MM') || '月 '
+    || TO_CHAR(SYSDATE, 'DD') || '日 '
+    || TO_CHAR(SYSDATE, 'HH12') || '時 '
+    || TO_CHAR(SYSDATE, 'MI') || '分 '
+    || TO_CHAR(SYSDATE, 'SS') || '秒 '
+    || CASE TO_CHAR(SYSDATE, 'DY')
+        WHEN '일' THEN '日'
+        WHEN '화' THEN '火'
+        WHEN '수' THEN '水'
+        WHEN '목' THEN '木'
+        WHEN '토' THEN '金'
+        WHEN '일' THEN '土'
+        END                        || '曜日 '
+    || DECODE(TO_CHAR(SYSDATE, 'AM') , '오전', '午前', 
+                                         '오후', '午後')  
+FROM DUAL;
+
+--1. TO_CHAR 활용
 SELECT SYSDATE,
         TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS DAY AM'), 
         TO_CHAR(SYSDATE, 'YYYY"년"MM"월"DD"일" HH24"시"MI"분"SS"초" DAY AM'),
@@ -211,10 +231,46 @@ SELECT COUNT(DISTINCT(DEPARTMENT_ID))
 FROM    EMPLOYEES           ;               -- 11
 
 -- 직원이 근무하는 부서의 수: 부서장이 있는 부서 수: DEPARTMENTS
+SELECT COUNT(DISTINCT(DEPARTMENT_ID))
+FROM    EMPLOYEES           ; 
+SELECT COUNT(*) 
+FROM    DEPARTMENTS           
+WHERE MANAGER_ID IS NOT NULL; 
+
+
+SELECT 7 / 2,
+        ROUND(123.456, 2),   ROUND(123.456, -2),
+        TRUNC(123.456, 2),   TRUNC(123.456, -2)
+FROM DUAL;
 
 -- 직원 수, 월급합, 월급평균, 최대월급, 최소월급
+SELECT   COUNT(*)                직원수,
+          SUM(SALARY)             월급합,
+        ROUND(AVG(SALARY),3)     월급평균,
+          MAX(SALARY)            최대월급,
+          MIN(SALARY)            최소월급
+FROM    EMPLOYEES; 
+
+-----------------------
+SQL 문의 실행 순서
+1. FROM
+2. WHERE
+3. SELECT
+4. ORDER BY
+-----------------------
 
 -- 부서 60번 부서 인원수, 월급 합, 월급 평균
+SELECT  COUNT(*)        인원수,
+        SUM(SALARY)      월급합,
+        AVG(SALARY)      월급평균
+FROM    EMPLOYEES           
+WHERE  DEPARTMENT_ID = 60; 
+
 
 -- 부서 50, 60, 80번 부서가 아닌 인원수, 월급합, 월급평균
-
+SELECT  COUNT(*)        인원수,
+        SUM(SALARY)      월급합,
+        ROUND(AVG(SALARY),3)      월급평균
+FROM    EMPLOYEES           
+WHERE DEPARTMENT_ID IS NOT NULL
+AND   DEPARTMENT_ID NOT IN(50, 60, 80); 
