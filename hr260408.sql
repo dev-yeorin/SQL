@@ -274,4 +274,106 @@ SELECT  COUNT(*)        인원수,
 FROM    EMPLOYEES           
 WHERE DEPARTMENT_ID IS NOT NULL
 AND   DEPARTMENT_ID NOT IN(50, 60, 80); 
- 
+
+
+--------------------------------------------------
+부서별 사원수
+SELECT DEPARTMENT_ID 부서번호,
+       COUNT(EMPLOYEE_ID) 사원수
+FROM    EMPLOYEES;
+-- ORA-00937: 단일 그룹의 그룹 함수가 아닙니다
+-- > 일반 함수와 집계 함수는 같이 나올 수 없다
+-- 표 모양이 만들어지게끔 해야 함
+
+
+SELECT DEPARTMENT_ID 부서번호,
+       COUNT(EMPLOYEE_ID) 사원수
+FROM    EMPLOYEES
+GROUP BY DEPARTMENT_ID
+-- HAVING   
+ORDER BY DEPARTMENT_ID;
+
+-- 부서별 월급 합, 월급 평균
+SELECT DEPARTMENT_ID 부서번호,
+        SUM(SALARY)  월급합,
+        ROUND(AVG(SALARY),3)  월급평균
+FROM   EMPLOYEES
+GROUP BY DEPARTMENT_ID
+--HAVING
+ORDER BY DEPARTMENT_ID;
+
+----------------------------------------------------
+
+
+-- 부서별 사원 수 통계
+SELECT DEPARTMENT_ID           부서번호,
+        COUNT(*)   인원수
+FROM   EMPLOYEES
+GROUP BY DEPARTMENT_ID
+ORDER BY DEPARTMENT_ID;
+
+
+-- 부서별 인원수, 월급합
+SELECT DEPARTMENT_ID           부서번호,
+        COUNT(EMPLOYEE_ID)   인원수,
+        SUM(SALARY)            월급합
+FROM   EMPLOYEES
+GROUP BY DEPARTMENT_ID
+ORDER BY DEPARTMENT_ID;
+
+
+-- 부서별 인원수가 5명 이상인 부서번호
+SELECT DEPARTMENT_ID             부서번호,
+        COUNT(DEPARTMENT_ID)      인원수
+FROM    EMPLOYEES
+GROUP BY DEPARTMENT_ID
+HAVING   COUNT(*) >= 5
+ORDER BY COUNT(DEPARTMENT_ID) DESC;
+
+
+-- 부서별 월급 총계가 20000 이상인 부서 번호
+SELECT DEPARTMENT_ID            부서번호,
+        SUM(SALARY)              월급총계
+FROM    EMPLOYEES
+GROUP BY DEPARTMENT_ID
+HAVING  SUM(SALARY) >= 20000
+ORDER BY DEPARTMENT_ID;
+
+
+-- JOB_ID 별 인원수
+SELECT JOB_ID               직업,
+        COUNT(EMPLOYEE_ID)       인원수
+FROM   EMPLOYEES
+GROUP BY JOB_ID
+ORDER BY JOB_ID;
+
+-- JOB_TITLE 별 인원수
+
+
+-- 입사일 기준 월별 인원수, 2017년 기준
+SELECT TO_CHAR(HIRE_DATE, 'YYYY-MM') 입사월,
+        COUNT(HIRE_DATE)              인원수
+FROM   EMPLOYEES
+WHERE TO_CHAR(HIRE_DATE, 'YYYY') = 2017 -- 일반 칼럼 조건
+GROUP BY  TO_CHAR(HIRE_DATE, 'YYYY-MM')
+ORDER BY 입사월 ;
+
+-- 부서별 최대 월급이 14000 이상인 부서의 부서번호와 최대 월급
+SELECT DEPARTMENT_ID   부서,
+        MAX(SALARY)     최대월급
+FROM    EMPLOYEES
+GROUP BY DEPARTMENT_ID
+--HAVING  MAX(SALARY) >= 14000
+ORDER BY DEPARTMENT_ID;
+
+-- 부서별 합침, 동 부서는 직업별 인원수, 월급평균
+SELECT  DEPARTMENT_ID       부서번호
+        , JOB_ID            업무ID
+        , COUNT(JOB_ID)    인원수
+        , ROUND(AVG(SALARY),2)       월급평균
+FROM  EMPLOYEES
+-- GROUP BY DEPARTMENT_ID, JOB_ID
+-- GROUP BY ROLLUP(DEPARTMENT_ID, JOB_ID)
+GROUP BY CUBE(DEPARTMENT_ID, JOB_ID)
+ORDER BY DEPARTMENT_ID, JOB_ID
+;
