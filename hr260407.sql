@@ -278,7 +278,7 @@ SELECT EMPLOYEE_ID          번호,
 FROM      EMPLOYEES
 -- WHERE TRUNC(HIRE_DATE) = '26/04/07 00:00:00';
 WHERE '2026-04-07 00:00:00' <= HIRE_DATE
-AND    HIRE_DATE <= '2026-04-07 23:59:59'
+AND    HIRE_DATE <= '2026-04-07 23:59:59';
 
 -- TYPE 변환
 -- TO_DATE(문자) -> 날짜
@@ -297,10 +297,12 @@ AND    HIRE_DATE <= '2026-04-07 23:59:59'
 
 
 -- 입사 후 일주일 이내인 직원 명단
-SELECT *
+SELECT EMPLOYEE_ID          번호,
+        FIRST_NAME || ' ' || LAST_NAME 이름,
+        TO_CHAR(HIRE_DATE, 'YYYY-MM-DD') 입사일
 FROM EMPLOYEES
+WHERE SYSDATE - HIRE_DATE <= 7;
 
-;
 -- 화요일 입사자 출력
 SELECT EMPLOYEE_ID          번호,
         FIRST_NAME || ' ' || LAST_NAME 이름,
@@ -313,9 +315,9 @@ ORDER BY HIRE_DATE ASC;
 -- 08월 입사자의 사번, 이름, 입사일을 입사일 순으로
 SELECT EMPLOYEE_ID          번호,
         FIRST_NAME || ' ' || LAST_NAME 이름,
-        TO_CHAR(HIRE_DATE, 'YYYY-MM-DD')
+        TO_CHAR(HIRE_DATE, 'YYYY-MM-DD') 입사일
 FROM EMPLOYEES
-WHERE TO_CHAR(HIRE_DATE, 'MONTH') = 8
+WHERE TO_CHAR(HIRE_DATE, 'MM') = 08
 ORDER BY HIRE_DATE ASC;
 
 -- 부서번호 80이 아닌 직원
@@ -331,3 +333,4 @@ WHERE   DEPARTMENT_ID != 80;
 
 -- 2026년 04월 07일 10시 05분 04초 오전 수요일
 -- 한자로 출력
+
