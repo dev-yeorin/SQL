@@ -142,3 +142,51 @@ IS
 VARIABLE O_CUR      REFCURSOR;
 EXECUTE GET_EMPLIST(50, :O_CUR)
 PRINT   O_CUR;
+
+
+---------------------------------------------------------
+DDL: DATA DEFINITION LANGUAGE
+구조를 생성, 변경, 제거
+
+CREATE
+ALTER
+DROP
+
+계정 생성
+아이디  : SKY
+비밀번호: 1234
+CMD
+Microsoft Windows [Version 10.0.19045.6218]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\GGG>sqlplus /nolog
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 월 4월 13 14:06:41 2026
+Version 21.3.0.0.0
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+SQL> conn /as sysdba
+연결되었습니다.
+SQL> show user
+USER은 "SYS"입니다
+SQL> ALTER SESSION SET "_ORACLE_SCRIPT"=TRUE;
+세션이 변경되었습니다.
+
+SQL> CREATE USER SKY IDENTIFIED BY 1234;
+사용자가 생성되었습니다.
+
+SQL> GRANT CONNECT, RESOURCE TO SKY;
+권한이 부여되었습니다.
+
+SQL> ALTER USER SKY DEFAULT TABLESPACE
+  2  USERS QUOTA UNLIMITED ON USERS;
+사용자가 변경되었습니다.
+
+SQL> CONN SKY/1234
+연결되었습니다.
+SQL> SHOW USER
+USER은 "SKY"입니다
+
+
+------------------------------------------------------
+새 계정으로 접속한 후에 작업
